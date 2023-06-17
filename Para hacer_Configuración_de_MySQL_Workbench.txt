@@ -1,0 +1,37 @@
+CREATE DATABASE db_movement_of_people;
+
+USE db_movement_of_people;
+
+CREATE DATABASE db_movement_of_people;
+
+USE db_movement_of_people;
+
+-- TABLA USUARIOS DE LA API
+CREATE TABLE users(
+id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+username INT(11) NOT NULL,
+password VARCHAR(255) NOT NULL,
+name VARCHAR(255) NOT NULL,
+lastname VARCHAR(255) NOT NULL,
+position VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL,
+profile_id INT(11) NOT NULL,
+CONSTRAINT FK_profile FOREIGN KEY (user_id) REFERENCES profiles(id)
+);
+
+-- TABLA PERFILES DE USUARIOS DE LA API
+CREATE TABLE profiles(
+id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+description VARCHAR(255) NOT NULL
+);  
+
+INSERT INTO users (username, password, firstname, lastname, email, position, profile_id)
+VALUES ('26023743-8', '2023', 'Isabella', 'Ospina', 'isabella@gmail.com', 'Analista', 7);
+
+SELECT * FROM users;
+
+UPDATE users SET lastname = 'Ospina Chaverra', email = 'isabella123@gmail.com', position = 'Supervisora'
+WHERE id = 3;
+
+DELETE FROM users WHERE id = 3;
